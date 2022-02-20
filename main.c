@@ -1,55 +1,48 @@
 #include <stdio.h>
-#include <unistd.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/wait.h>
 #include <string.h>
 #include <ctype.h>
 
-char message[] = "Bad input";
+char str[50];
+char re[10];
 
-int main()
-{
-	char string[30];
-	char *found;
+int main(void) {
 	
 	while (1) {
-		fgets(string, 30, stdin);
-		string[strlen(string) - 1] = '\0';
+		fgets(str, 50, stdin);
+		str[strlen(str)-1] = '\0';
+		sscanf(str, "%[^(]%*[\n]", re);	
 
-		found = strtok(string,"(");
-
-		if (found==NULL) return 1;
-
-		for(int i = 0; found[i]; i++) found[i] = tolower(found[i]);
-
-		if (strcmp(found, "circle") == 0) {
-			int count = 0;
+		for(int i = 0; re[i]; i++) re[i] = tolower(re[i]);
+		
+		if (strcmp(re, "circle") == 0) {
 			float x, y, r;
+			char temp;
 
-			while(found && count < 2) {
-        		found = strtok(NULL, " ");
-				printf("%s\n", found);
-				if (found==NULL) {
-					puts(message);
-					return 1;
-				}
-				if (count == 0) x = atof(found);
-				else if (count == 1) y = atof(found);
-				count++;
-    		}
-
-        	found = strtok(NULL, ")");
-			if (found==NULL) {
-				puts(message);
-				return 1;
+			if (3 != sscanf(str, "%*[^(](%f %f, %f)%1[^\n]", &x, &y, &r, &temp)) {
+				printf("Invalid input!\n");
+				continue;
 			}
-			
-			r = atof(found);
 
 			printf("%f %f %f\n", x, y, r);
+
+		} else if (strcmp(re, "triangle") == 0) {
+			float x1, y1, x2, y2, x3, y3, x4, y4;
+			char temp;
+
+			if (8 != sscanf(str, "%*[^(]((%f %f, %f %f, %f %f, %f %f))%1[^\n]", &x1, &y1, &x2, &y2, &x3, &y3, &x4, &y4, &temp)) {
+				printf("Invalid input!\n");
+				continue;
+			}
+
+			printf("%f %f %f %f %f %f %f %f\n", x1, y1, x2, y2, x3, y3, x4, y4);
+
+
+
+
+		} else printf("Invalid input!\n");
 			
-		}
+
 
 
 
@@ -57,5 +50,6 @@ int main()
 
 	}
 
-    return 0;
+	return 0;
+
 }
