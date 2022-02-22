@@ -1,55 +1,61 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <ctype.h>
 
-char str[50];
-char re[10];
-
-int main(void) {
+int main(void)
+{
+	char str[50];
+	char re[10];	
 	
-	while (1) {
-		fgets(str, 50, stdin);
-		str[strlen(str)-1] = '\0';
-		sscanf(str, "%[^(]%*[\n]", re);	
+    while (1) {
+        fgets(str, 50, stdin);
+        str[strlen(str) - 1] = '\0';
+        sscanf(str, "%[^(]%*[\n]", re);
 
-		for(int i = 0; re[i]; i++) re[i] = tolower(re[i]);
-		
-		if (strcmp(re, "circle") == 0) {
-			float x, y, r;
-			char temp;
+        for (int i = 0; re[i]; i++)
+            re[i] = tolower(re[i]);
 
-			if (3 != sscanf(str, "%*[^(](%f %f, %f)%1[^\n]", &x, &y, &r, &temp)) {
-				printf("Invalid input!\n");
-				continue;
-			}
+        if (strcmp(re, "circle") == 0) {
+            float x, y, r;
+            char temp;
 
-			printf("%f %f %f\n", x, y, r);
+            if (3
+                != sscanf(str, "%*[^(](%f %f, %f)%1[^\n]", &x, &y, &r, &temp)) {
+                printf("Invalid input!\n");
+                continue;
+            }
 
-		} else if (strcmp(re, "triangle") == 0) {
-			float x1, y1, x2, y2, x3, y3, x4, y4;
-			char temp;
+            //printf("%f %f %f\n", x, y, r);
+            printf("It's a circle!\n");
 
-			if (8 != sscanf(str, "%*[^(]((%f %f, %f %f, %f %f, %f %f))%1[^\n]", &x1, &y1, &x2, &y2, &x3, &y3, &x4, &y4, &temp)) {
-				printf("Invalid input!\n");
-				continue;
-			}
+        } else if (strcmp(re, "triangle") == 0) {
+            float x1, y1, x2, y2, x3, y3, x4, y4;
+            char temp;
 
-			printf("%f %f %f %f %f %f %f %f\n", x1, y1, x2, y2, x3, y3, x4, y4);
-
-
-
-
-		} else printf("Invalid input!\n");
+            if (8
+                != sscanf(
+                        str,
+                        "%*[^(]((%f %f, %f %f, %f %f, %f %f))%1[^\n]",
+                        &x1,
+                        &y1,
+                        &x2,
+                        &y2,
+                        &x3,
+                        &y3,
+                        &x4,
+                        &y4,
+                        &temp)) {
+                printf("Invalid input!\n");
+                continue;
+            }
 			
+            printf("It's a triangle!\n");
+            //printf("%f %f %f %f %f %f %f %f\n", x1, y1, x2, y2, x3, y3, x4, y4);
 
+        } else
+            printf("Invalid input!\n");
+    }
 
-
-
-
-
-	}
-
-	return 0;
-
+    return 0;
 }
