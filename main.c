@@ -26,8 +26,7 @@ int main(void)
                 continue;
             }
 
-            //printf("%f %f %f\n", x, y, r);
-            printf("It's a circle!\n");
+            printf("Это круг, координаты: x = %.3g y = %.3g, радиус: %.3g\n", x, y, r);
 
         } else if (strcmp(re, "triangle") == 0) {
             float x1, y1, x2, y2, x3, y3, x4, y4;
@@ -50,8 +49,7 @@ int main(void)
                 continue;
             }
 			
-            printf("It's a triangle!\n");
-            //printf("%f %f %f %f %f %f %f %f\n", x1, y1, x2, y2, x3, y3, x4, y4);
+            printf("Это треугольник, координаты: x1 = %.3g y1 = %.3g, x2 = %.3g y2 = %.3g, x3 = %.3g y3 = %.3g, x4 = %.3g y4 = %.3g\n", x1, y1, x2, y2, x3, y3, x4, y4);
 
         } else
             printf("Invalid input!\n");
