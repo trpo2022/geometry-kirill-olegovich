@@ -5,9 +5,9 @@
 
 int main(void)
 {
-	char str[50];
-	char re[10];	
-	
+    char str[50];
+    char re[10];
+
     while (1) {
         fgets(str, 50, stdin);
         str[strlen(str) - 1] = '\0';
@@ -26,7 +26,11 @@ int main(void)
                 continue;
             }
 
-            printf("Это %s, координаты: x = %.3g y = %.3g, радиус: %.3g\n", re, x, y, r);
+            printf("Это %s, координаты: x = %.3g y = %.3g, радиус: %.3g\n",
+                   re,
+                   x,
+                   y,
+                   r);
 
         } else if (strcmp(re, "triangle") == 0) {
             float x1, y1, x2, y2, x3, y3, x4, y4;
@@ -48,8 +52,18 @@ int main(void)
                 printf("Invalid input!\n");
                 continue;
             }
-			
-            printf("Это %s, координаты: x1 = %.3g y1 = %.3g, x2 = %.3g y2 = %.3g, x3 = %.3g y3 = %.3g, x4 = %.3g y4 = %.3g\n", re, x1, y1, x2, y2, x3, y3, x4, y4);
+
+            printf("Это %s, координаты: x1 = %.3g y1 = %.3g, x2 = %.3g y2 = "
+                   "%.3g, x3 = %.3g y3 = %.3g, x4 = %.3g y4 = %.3g\n",
+                   re,
+                   x1,
+                   y1,
+                   x2,
+                   y2,
+                   x3,
+                   y3,
+                   x4,
+                   y4);
 
         } else
             printf("Invalid input!\n");
