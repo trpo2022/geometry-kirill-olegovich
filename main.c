@@ -5,8 +5,10 @@
 
 int main(void)
 {
-    char str[50];
-    char re[10];
+    int n_str = 50;
+    int n_re = 10;
+    char str[n_str];
+    char re[n_re];
 
     while (1) {
         fgets(str, 50, stdin);
