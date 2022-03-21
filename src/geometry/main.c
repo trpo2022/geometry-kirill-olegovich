@@ -1,4 +1,4 @@
-#include "geometry.h"
+#include <libgeometry/geometry.h>
 #include <ctype.h>
 #include <math.h>
 #include <stdio.h>
@@ -7,8 +7,6 @@
 
 int main(void)
 {
-    test();
-
     int n_str = 50;
     int n_re = 10;
     char str[n_str];
@@ -32,18 +30,22 @@ int main(void)
                 continue;
             }
 
+			print_circle(re, x, y, r);
+			
+			/*
             printf("Это %s, координаты: x = %.3f y = %.3f, радиус: %.3f\n",
                    re,
                    x,
                    y,
                    r);
 
-            printf("Длина окружности: %.3f, площадь: %.3f",
+            printf("Длина окружности: %.3f, площадь: %.3f\n",
                    2 * 3.14 * r,
                    r * r * 3.14);
+			*/
 
         } else if (strcmp(re, "triangle") == 0) {
-            float x1, y1, x2, y2, x3, y3, x4, y4, a, b, c;
+            float x1, y1, x2, y2, x3, y3, x4, y4;
             char temp;
 
             if (8
@@ -67,11 +69,10 @@ int main(void)
                 printf("Invalid input!\n");
                 continue;
             }
+			
+			print_triangle(re, x1, y1, x2, y2, x3, y3, x4, y4);
 
-            a = sqrt(pow((x2 - x3), 2) + pow((y2 - y3), 2));
-            b = sqrt(pow((x1 - x3), 2) + pow((y1 - y3), 2));
-            c = sqrt(pow((x1 - x2), 2) + pow((y1 - y2), 2));
-
+			/*
             printf("Это %s, координаты: x1 = %.3f y1 = %.3f, x2 = %.3f y2 = "
                    "%.3f, x3 = %.3f y3 = %.3f, x4 = %.3f y4 = %.3f\n",
                    re,
@@ -84,11 +85,12 @@ int main(void)
                    x4,
                    y4);
 
-            printf("Периметр: %.3f, площадь: %.3f",
+            printf("Периметр: %.3f, площадь: %.3f\n",
                    a + b + c,
                    fabs((x1 * (y2 - y3) + x2 * (y1 - y3) + x3 * (y1 - y2))
                         / 2));
-
+			*/
+		
         } else
             printf("Invalid input!\n");
     }
