@@ -1,6 +1,6 @@
 #include <ctype.h>
-#include <libgeometry/print.h>
 #include <libgeometry/check_shape.h>
+#include <libgeometry/print.h>
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,10 +22,10 @@ int main(void)
             re[i] = tolower(re[i]);
 
         if (strcmp(re, "circle") == 0) {
-			check_circle(str, re);
+            check_circle(str, re);
 
         } else if (strcmp(re, "triangle") == 0) {
-			check_triangle(str, re);
+            check_triangle(str, re);
 
         } else
             printf("Invalid input!\n");
