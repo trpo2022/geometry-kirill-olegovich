@@ -2,3 +2,5 @@
 main.c~
 #main.c#
 main
+obj/
+bin/
