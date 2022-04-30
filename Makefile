@@ -1,7 +1,7 @@
 app_name = geometry
 lib_name = libgeometry
 
-cflags = -Wall -Werror -I src -MP -MMD
+cflags = -Wall -Werror -I src -I thirdparty -MP -MMD
 # cflags2 = -Wall -Werror
 myflag = -lm
 
@@ -16,11 +16,11 @@ lib_objects = $(lib_sources:src/%.cpp=obj/src/%.o)
 
 # deps = $(app_objects:.o=.d) $(lib_objects:.o=.d)
 
-# test_name = test
-# test_path = bin/$(test_name)
+test_name = test
+test_path = bin/$(test_name)
 
-# test_sources = $(shell find test/ -name '*.cpp')
-# test_objects = $(test_sources:test/%.cpp=obj/test/%.o)
+test_sources = $(shell find test/ -name '*.cpp')
+test_objects = $(test_sources:test/%.cpp=obj/test/%.o)
 
 # test_deps = $(test_objects:.o=.d) $(lib_objects:.o=.d)
 
