@@ -1,5 +1,6 @@
 #include <ctest.h>
 #include <libgeometry/check_shape.h>
+#include <libgeometry/check_overlaps.h>
 #include <libgeometry/print.h>
 #include <stdio.h>
 #include <stdlib.h>
