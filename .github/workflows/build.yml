@@ -19,4 +19,4 @@ jobs:
         run: make test
       
       - name: Run tests
-        run: ./bin/tests
+        run: ./bin/test
