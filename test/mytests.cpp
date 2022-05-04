@@ -12,12 +12,12 @@ CTEST(ctest, write1)
 
 CTEST(ctest, write2)
 {
-    ASSERT_EQUAL(0, check_circle((char*)"circle(1 2, 3))", (char*)"circle"));
+    ASSERT_EQUAL(1, check_circle((char*)"circle(1 2, 3))", (char*)"circle"));
 }
 
 CTEST(ctest, write3)
 {
-    ASSERT_EQUAL(0, check_circle((char*)"circle(1 2 3)", (char*)"circle"));
+    ASSERT_EQUAL(1, check_circle((char*)"circle(1 2 3)", (char*)"circle"));
 }
 
 CTEST(ctest, write4)
@@ -32,7 +32,7 @@ CTEST(ctest, write4)
 CTEST(ctest, write5)
 {
     ASSERT_EQUAL(
-            0,
+            1,
             check_triangle(
                     (char*)"triangle((1 2, 2 3, 3 4, 1 2)))",
                     (char*)"triangle"));
@@ -41,7 +41,7 @@ CTEST(ctest, write5)
 CTEST(ctest, write6)
 {
     ASSERT_EQUAL(
-            0,
+            1,
             check_triangle(
                     (char*)"triangle((1 2, 2 3, 3 4, 1 3))",
                     (char*)"triangle"));
