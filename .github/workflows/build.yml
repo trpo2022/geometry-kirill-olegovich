@@ -14,3 +14,9 @@ jobs:
 
       - name: Build application
         run: make
+	
+	  - name: Tests
+	  	run: make test
+	
+	  - name: Run tests
+	  	run: ./bin/tests
